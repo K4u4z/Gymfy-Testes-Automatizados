@@ -1,0 +1,62 @@
+<main>
+  <section class="form-container">
+    <h2><span class="highlight-bar"></span> Criar Nova Lista</h2>
+    <hr />
+
+    <form (ngSubmit)="salvar()">
+      <!-- Nome -->
+      <div class="form-group">
+        <label for="nome">Nome da Lista</label>
+        <input type="text" id="nome" [(ngModel)]="lista.nome" name="nome" required />
+      </div>
+
+      <!-- Descrição -->
+      <div class="form-group">
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" [(ngModel)]="lista.descricao" name="descricao"></textarea>
+      </div>
+
+      <!-- Dia -->
+      <div class="form-group">
+        <label>Dia da Semana</label>
+        <ul class="dias-semana">
+          <li *ngFor="let dia of diasSemana"
+              [class.ativo]="lista.dia === dia"
+              (click)="lista.dia = dia">
+            {{ dia }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- Exercícios -->
+      <div class="form-group">
+        <h3>Selecione os exercícios</h3>
+        <ul class="lista-exercicios">
+  <li *ngFor="let exercicio of exercicios"
+      [class.selecionado]="exercicioSelecionados.includes(exercicio.id ?? 0)"
+      (click)="toggleExercicio(exercicio.id ?? 0)">
+    {{ exercicio.nome }}
+  </li>
+</ul>
+
+      </div>
+
+      <!-- Botão -->
+      <div class="BotaoCriarLista">
+        <button type="submit" [disabled]="salvando">
+          <span *ngIf="!salvando">Salvar</span>
+          <span *ngIf="salvando" class="loader"></span>
+        </button>
+      </div>
+    </form>
+
+    <!-- Popup -->
+    <div class="popup" *ngIf="confirmacao">
+      <p>✅ Lista criada com sucesso!</p>
+    </div>
+  </section>
+
+  <footer>
+    <app-footer></app-footer>
+  </footer>
+</main>

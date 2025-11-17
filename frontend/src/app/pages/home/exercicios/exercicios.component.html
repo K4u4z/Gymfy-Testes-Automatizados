@@ -1,0 +1,43 @@
+<!-- Cabeçalho -->
+<app-header-top></app-header-top>
+<!-- Menu de navegação -->
+<app-navbar></app-navbar>
+<!-- Lista de exercícios -->
+<main class="user-list">
+  <h2><span class="highlight-bar"></span> Lista de Exercícios</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Tipo</th>
+        <th>Nivel</th>
+        <th>Descrição</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let exercicio of exercicios">
+        <td>{{ exercicio.id }}</td>
+        <td>{{ exercicio.nome }}</td>
+        <td>{{ exercicio.tipo }}</td>
+        <td>{{ exercicio.nivel }}</td>
+        <td>{{ exercicio.descricao }}</td>
+        <td class="acoes">
+          <button class="btn-editar" (click)="editarExercicio(exercicio)">
+            <img src="assets/images/edit.png" alt="editar" />
+          </button>
+          <button class="btn-excluir" (click)="excluirExercicio(exercicio)">
+            <img src="assets/images/excluir.png" alt="excluir" />
+          </button>
+        </td>
+      </tr>
+      
+      
+    </tbody>
+  </table>
+</main>
+<!-- Rodapé -->
+<app-footer></app-footer>
+

@@ -1,0 +1,29 @@
+<main *ngIf="lista; else carregando">
+  <h2>Detalhes da Lista</h2>
+
+  <div class="detalhes">
+    <p><strong>Nome:</strong> {{ lista.nome }}</p>
+    <p><strong>Descrição:</strong> {{ lista.descricao || 'Sem descrição' }}</p>
+    <p><strong>Dia:</strong> {{ lista.dia }}</p>
+    <p><strong>Data:</strong> {{ lista.data | date: 'dd/MM/yyyy' }}</p>
+  </div>
+
+  <div class="exercicios">
+  <h3>Exercícios Selecionados</h3>
+  <ul>
+    <li *ngFor="let exercicio of lista.exercicios">
+      <strong>{{ exercicio.nome }}</strong> - {{ exercicio.tipo }} ({{ exercicio.nivel }})
+    </li>
+  </ul>
+</div>
+
+
+    
+
+
+  <button (click)="voltar()">Voltar</button>
+</main>
+
+<ng-template #carregando>
+  <p>Carregando detalhes da lista...</p>
+</ng-template>

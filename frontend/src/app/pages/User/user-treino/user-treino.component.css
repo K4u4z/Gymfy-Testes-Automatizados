@@ -1,0 +1,121 @@
+.treinos-layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 20px;
+  padding: 30px;
+  flex-grow: 1;
+}
+
+
+.sidebar {
+  width: 40em;
+}
+
+.listas-container {
+ flex: 1; 
+ padding: 20px;
+ height: fit-content; 
+ margin-top: 10em; 
+ margin-left: -15em;
+}
+
+.listas-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.card-lista {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.card-lista:hover {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-lista h3 {
+  margin: 0 0 8px;
+  color: #007bff;
+}
+
+.card-lista p {
+  margin: 0 0 6px;
+  color: #555;
+}
+
+.card-lista span {
+  font-size: 14px;
+  color: #666;
+}
+
+.BotaoCriarLista {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.BotaoCriarLista button {
+  background-color: #C6D932;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.BotaoCriarLista button:hover {
+  background-color: #C6D932;
+  transform: scale(1.1);
+}
+
+.empty-message {
+  font-style: italic;
+  color: #999;
+  margin-bottom: 20px;
+}
+.filtro-dias {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filtro-dias button {
+  padding: 6px 10px;
+  font-size: 13px;
+  border: 1px solid #C6D932;
+  background-color: white;
+  color: #000;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  max-width: fit-content;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.filtro-dias button:hover {
+  background-color: #e6f0ff;
+}
+
+.filtro-dias button.ativo {
+  background-color: #C6D932;
+  color: white;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
