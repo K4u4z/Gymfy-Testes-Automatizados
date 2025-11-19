@@ -101,9 +101,9 @@
 
     <!-- Vídeo -->
     <div class="form-group">
-      <label for="videoUrl">URL do Vídeo (YouTube)</label>
+      <label for="videoUrl" name="videoUrl">URL do Vídeo (YouTube)</label>
       <input id="videoUrl" type="text" formControlName="videoUrl" placeholder="https://youtube.com/..."
-        [ngClass]="{'is-valid': f['videoUrl'].valid && f['videoUrl'].touched, 'is-invalid': f['videoUrl'].invalid && f['videoUrl'].touched}" />
+        [ngClass]="{'is-valid': f['videoUrl'].valid && f['videoUrl'].touched, 'is-invalid': f['videoUrl'].invalid && f['videoUrl'].touched}" name="videoUrl"/>
       <div class="feedback" *ngIf="f['videoUrl'].touched && f['videoUrl'].invalid">
         <small>Informe uma URL válida do YouTube.</small>
       </div>
