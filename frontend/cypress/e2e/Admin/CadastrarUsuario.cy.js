@@ -46,7 +46,7 @@ describe('Validando tela de cadastro de Usuario', () => {
 
 
   // ✅ Cadastro de usuário comum
-  it('Cadastrar usuário comum com sucesso', () => {
+  it.only('Cadastrar usuário comum com sucesso', () => {
     cy.get('#nome').type('kaua');
     cy.get('select').select(2);
     cy.get('#dataNascimento').type('2002-02-17');
