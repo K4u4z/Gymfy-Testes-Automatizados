@@ -7,7 +7,7 @@ describe('Validando tela de cadastro de Usuario', () => {
     let nomeUsuario = '';
     let alertCount = 0;
   
-    // 🔑 Login direto no backend
+
     before(() => {
       cy.request("POST", "http://localhost:8080/auth/login", {
         email: "kauadiodato2@outlook.com",
@@ -15,7 +15,7 @@ describe('Validando tela de cadastro de Usuario', () => {
       }).then((response) => {
         const body = response.body;
   
-        // 🔍 Log completo da resposta
+
         console.log("📦 BODY:", body);
         debugger;
   
@@ -31,9 +31,9 @@ describe('Validando tela de cadastro de Usuario', () => {
 
     })
 
-     // 🔒 Visita o frontend e injeta sessionStorage
+
   beforeEach(() => {
-    cy.visit("http://localhost:4200/exercicios", {
+    cy.visit("http://localhost:4200/admin", {
       onBeforeLoad(win) {
         win.sessionStorage.setItem("jwt_token", token);
         win.sessionStorage.setItem("usuarioPerfil", perfil);
@@ -43,41 +43,39 @@ describe('Validando tela de cadastro de Usuario', () => {
     });
   })
 
-  it('Validar se usuario estão sendo exibidos na página', ()=>{
-    cy.contains('td','Costas2')
+  it('Validar se usuarios estão sendo exibidos na página', ()=>{
+    cy.contains('td','kauã diodato2')
   })
 
-  it('Validar se o exercicio é excluido da plataforma', ()=>{
-    cy.get('table tbody tr').contains('td', 2) 
+  it('Validar se o usuario é excluido da plataforma', ()=>{
+    cy.get('table tbody tr').contains('td', 1) 
     .parent()
     .find('button.btn-excluir') 
     .click()
-    cy.get('table tbody tr').contains('td', 2).should('not.exist');
+    cy.get('table tbody tr').contains('td', 1).should('not.exist');
 
   })
 
-  it('Validar redirecionamento para página de edição do exercicio', ()=>{
-    cy.get('table tbody tr').contains('td',4)
+  it('Validar redirecionamento para página de edição do usuario', ()=>{
+    cy.get('table tbody tr').contains('td',1)
     .parent()
     .find('button.btn-editar')
     .click()
   })
 
-  it('Validar a alteração do campo de exercicio', ()=>{
+  it('Validar a alteração do campo de usuario', ()=>{
 
     cy.get('table tbody tr').contains('td',4)
     .parent()
     .find('button.btn-editar')
     .click()
 
-    cy.get('#nome').type('Supino declinado2')
-    cy.get('#tipo').select(3)
-    cy.get('#nivel').select(2)
-    cy.get('#agrupamento').type('Peito')
-    cy.get('#descricao').type('Exercicios para peito alterado')
-    cy.get('input[type="file"]').selectFile('cypress/fixtures/imagens/costas.jpg')
-    cy.get('#videoUrl').type('https://www.youtube.com/watch?v=y7CrALaIi6E')
-    cy.contains('button','Salvar Dados').click()
+    cy.get('#nome').clear().type('kaua diodato 4')
+    cy.get('#tipo').select(1)
+    cy.get('#email').clear().type('kauadiodato3@outlook.com')
+    cy.get('#senha').clear().type('teste12345')
+        cy.get('input[type="file"]').selectFile('cypress/fixtures/imagens/pacho.jpg')
+    cy.contains('button','Salvar alterações').click()
     
   })
 

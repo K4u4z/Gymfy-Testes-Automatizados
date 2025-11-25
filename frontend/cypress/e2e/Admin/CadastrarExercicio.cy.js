@@ -7,7 +7,7 @@ describe('Validando tela de cadastro de Usuario', () => {
     let nomeUsuario = '';
     let alertCount = 0;
   
-    // 🔑 Login direto no backend
+
     before(() => {
       cy.request("POST", "http://localhost:8080/auth/login", {
         email: "kauadiodato2@outlook.com",
@@ -15,7 +15,7 @@ describe('Validando tela de cadastro de Usuario', () => {
       }).then((response) => {
         const body = response.body;
   
-        // 🔍 Log completo da resposta
+
         console.log("📦 BODY:", body);
         debugger;
   
@@ -31,7 +31,7 @@ describe('Validando tela de cadastro de Usuario', () => {
 
     })
 
-     // 🔒 Visita o frontend e injeta sessionStorage
+
   beforeEach(() => {
     cy.visit("http://localhost:4200/cadastrarexercicios", {
       onBeforeLoad(win) {
@@ -44,7 +44,7 @@ describe('Validando tela de cadastro de Usuario', () => {
   })
 
   it('Cadastrando um exercicio com sucesso', ()=>{
-   cy.get('#nome').type('Supino declinado')
+   cy.get('#nome').type('Pulley frente')
    cy.get('#tipo').select(3)
    cy.get('#nivel').select(2)
    cy.get('#agrupamento').type('Peito')
@@ -59,7 +59,7 @@ describe('Validando tela de cadastro de Usuario', () => {
   })
 
   it('Cadastrando exercicio com informações faltando', ()=>{
-    cy.get('#nome').type('Supino inclinado')
+    cy.get('#nome').type('Pulley frente')
     cy.get('#tipo').select(3)
     cy.get('#nivel').select(2)
     cy.get('#agrupamento').type('Peito')
@@ -69,16 +69,5 @@ describe('Validando tela de cadastro de Usuario', () => {
     cy.get('.feedback').should('be.visible').and('contain','Campo obrigatório (máx. 500 caracteres).')
   })
 
-  it('Cadastrando um exercicio com sucesso', ()=>{
-    cy.get('#nome').type('Supino inclinado')
-    cy.get('#tipo').select(3)
-    cy.get('#nivel').select(2)
-    cy.get('#agrupamento').type('Peito')
-    cy.get('#descricao').type('Exercicios para nota')
-    cy.get('input[type="file"]').selectFile('cypress/fixtures/imagens/costas.jpg')
-    cy.get('#videoUrl').type('https://www.youtube.com/watch?v=y7CrALaIi6E')
-    cy.contains('button','Cadastrar').click()
- 
-   })
 
 })

@@ -6,8 +6,7 @@ describe('Validando tela de cadastro de Usuario', () => {
     let usuarioId = '';
     let nomeUsuario = '';
     let alertCount = 0;
-  
-    // 🔑 Login direto no backend
+
     before(() => {
       cy.request("POST", "http://localhost:8080/auth/login", {
         email: "kauadiodato2@outlook.com",
@@ -15,7 +14,7 @@ describe('Validando tela de cadastro de Usuario', () => {
       }).then((response) => {
         const body = response.body;
   
-        // 🔍 Log completo da resposta
+
         console.log("📦 BODY:", body);
         debugger;
   
@@ -31,7 +30,7 @@ describe('Validando tela de cadastro de Usuario', () => {
 
     })
 
-     // 🔒 Visita o frontend e injeta sessionStorage
+
   beforeEach(() => {
     cy.visit("http://localhost:4200/exercicios", {
       onBeforeLoad(win) {
@@ -70,7 +69,7 @@ describe('Validando tela de cadastro de Usuario', () => {
     .find('button.btn-editar')
     .click()
 
-    cy.get('#nome').type('Supino declinado2')
+    cy.get('#nome').type('Pulley frente2')
     cy.get('#tipo').select(3)
     cy.get('#nivel').select(2)
     cy.get('#agrupamento').type('Peito')
