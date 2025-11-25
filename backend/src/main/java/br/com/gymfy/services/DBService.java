@@ -53,8 +53,8 @@ public class DBService {
 
         // Exercícios e personal continuam iguais
         Exercicio exercicio = new Exercicio("Costas1", "costas", "Costas", "avançado", "exercicio para costas", "", "");
-        Exercicio exercicio2 = new Exercicio("peito", "peito", "peito", "avançado", "asjdiasndnas", "", "");
-        Exercicio exercicio3 = new Exercicio("Costas2", "costas", "Costas", "avançado", "asjdiasndnas", "", "");
+        Exercicio exercicio2 = new Exercicio("peito", "peito", "peito", "avançado", "exercicio para peito", "", "");
+        Exercicio exercicio3 = new Exercicio("Costas2", "costas", "Costas", "avançado", "exercicio para costas", "", "");
         exercicioRepository.saveAll(Arrays.asList(exercicio, exercicio2, exercicio3));
 
         Personal personal = new Personal(

@@ -7,7 +7,7 @@ describe('Validando tela de cadastro de Usuario', () => {
   let nomeUsuario = '';
   let alertCount = 0;
 
-  // 🔑 Login direto no backend
+
   before(() => {
     cy.request("POST", "http://localhost:8080/auth/login", {
       email: "kauadiodato2@outlook.com",
@@ -15,7 +15,7 @@ describe('Validando tela de cadastro de Usuario', () => {
     }).then((response) => {
       const body = response.body;
 
-      // 🔍 Log completo da resposta
+
       console.log("📦 BODY:", body);
       debugger;
 
@@ -30,7 +30,6 @@ describe('Validando tela de cadastro de Usuario', () => {
     });
   });
 
-  // 🔒 Visita o frontend e injeta sessionStorage
   beforeEach(() => {
     cy.visit("http://localhost:4200/cadastrarusuario", {
       onBeforeLoad(win) {
@@ -45,8 +44,8 @@ describe('Validando tela de cadastro de Usuario', () => {
 
 
 
-  // ✅ Cadastro de usuário comum
-  it.only('Cadastrar usuário comum com sucesso', () => {
+
+  it('Cadastrar usuário comum com sucesso', () => {
     cy.get('#nome').type('kaua');
     cy.get('select').select(2);
     cy.get('#dataNascimento').type('2002-02-17');

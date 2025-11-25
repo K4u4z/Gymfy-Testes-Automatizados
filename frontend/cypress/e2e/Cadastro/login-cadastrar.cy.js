@@ -6,9 +6,6 @@ beforeEach(()=>{
     cy.visit('/login-cadastrar')
 })
 
-it('Verificar se o titulo está correto', () =>{
-    cy.title('bhdnasdmsandanm')
-})
 
 it('Cadastrar usuário comum com sucesso', () =>{
     cy.get('#nome').type('kaua')
