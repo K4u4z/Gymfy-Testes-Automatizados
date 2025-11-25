@@ -41,23 +41,23 @@ describe('Validando tela de exercícios', () => {
   });
 
   it('Visitar detalhes de um exercício criado', () => {
-    cy.contains('.exercise-card h3', 'Supino declinado').should('exist');
-    cy.contains('.exercise-card h3', 'Supino declinado')
+    cy.contains('.exercise-card h3', 'Pulley frente2').should('exist');
+    cy.contains('.exercise-card h3', 'Pulley frente2')
       .parents('.exercise-card')
       .find('.inspect-btn')
       .click();
     cy.url().should('include', '/detalhes');
-    cy.contains('h2', 'Supino declinado').should('be.visible');
+    cy.contains('h2', 'Pulley frente2').should('be.visible');
   });
 
  it('Dar play no vídeo do exercício', () => {
-  cy.contains('.exercise-card h3', 'Supino declinado')
+  cy.contains('.exercise-card h3', 'Pulley frente2')
     .parents('.exercise-card')
     .find('.inspect-btn')
     .click();
 
   cy.url().should('include', '/detalhes');
 
-  cy.get('iframe[title*="Supino declinado"]').should('exist').and('be.visible');
+  cy.get('iframe[title*="Pulley frente2"]').should('exist').and('be.visible');
 });
 });

@@ -15,7 +15,7 @@ describe('Validando formulário de contato', () => {
     cy.get('input[name="mensagem"]').type('Gostaria de saber mais sobre os planos disponíveis.');
     cy.contains('button','Enviar').click();
 
-    // valida que o formulário foi enviado (exemplo: mensagem de sucesso)
+
     cy.get('.container-form').should('contain.text','Formulário');
   });
 
@@ -44,7 +44,7 @@ describe('Validando formulário de contato', () => {
     cy.get('input[name="mensagem"]').type('Mensagem teste');
     cy.contains('button','Enviar').click();
 
-    // valida que o campo confirmar-email tem erro
+
     cy.get('#confirmar-email').then(($input) => {
       expect($input[0].validationMessage).to.not.be.empty;
     });
@@ -52,7 +52,7 @@ describe('Validando formulário de contato', () => {
 
   it('Validar campo telefone aceita apenas números', () => {
     cy.get('#telefone').type('abcde');
-    cy.get('#telefone').should('have.value',''); // navegador bloqueia caracteres inválidos
+    cy.get('#telefone').should('have.value',''); 
   });
 
   it('Validar limite de caracteres nos campos', () => {
